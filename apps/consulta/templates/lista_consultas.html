@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Consultas</title>
+</head>
+<body>
+    <h1>Lista de Consultas</h1>
+    <a href="{% url 'criar_consulta' %}">Criar nova consulta</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Aluno</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Sexo</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>IMC</th>
+                <th>Quantidade de Consultas</th>
+                <th>Retorno</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consulta in consultas %}
+                <tr>
+                    <td>{{ consulta.alunos.nome }}</td>
+                    <td>{{ consulta.cpf }}</td>
+                    <td>{{ consulta.data_de_nascimento }}</td>
+                    <td>{{ consulta.sexo }}</td>
+                    <td>{{ consulta.altura }}</td>
+                    <td>{{ consulta.peso }}</td>
+                    <td>{{ consulta.imc }}</td>
+                    <td>{{ consulta.quantidade_consultas }}</td>
+                    <td>{{ consulta.retorno }}</td>
+                    <td>
+                        <a href="{% url 'detalhe_consulta' pk=consulta.pk %}">Detalhes</a>
+                        <a href="{% url 'atualizar_consulta' pk=consulta.pk %}">Atualizar</a>
+                        <a href="{% url 'excluir_consulta' pk=consulta.pk %}">Excluir</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="10">Nenhuma consulta encontrada.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

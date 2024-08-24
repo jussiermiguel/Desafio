@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Aluno</title>
+</head>
+<body>
+    <h1>Detalhes do Aluno</h1>
+    <p><strong>Nome:</strong> {{ aluno.nome }}</p>
+    <p><strong>Idade:</strong> {{ aluno.idade }}</p>
+    <p><strong>Data de Nascimento:</strong> {{ aluno.data_de_nascimento }}</p>
+    <p><strong>CPF:</strong> {{ aluno.cpf }}</p>
+    <p><strong>Sexo:</strong> {{ aluno.sexo }}</p>
+    <p><strong>Mensalidade Paga:</strong> {{ aluno.mensalidade_paga }}</p>
+    <a href="{% url 'atualizar_aluno' pk=aluno.pk %}">Atualizar</a>
+    <a href="{% url 'excluir_aluno' pk=aluno.pk %}">Excluir</a>
+    <a href="{% url 'lista_alunos' %}">Voltar para a lista</a>
+</body>
+</html>
