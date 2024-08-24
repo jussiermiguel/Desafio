@@ -1,0 +1,15 @@
+Criar um projeto django em Template ou API
+
+Deve possuir todo o CRUD do django com duas ou mais entidades, 
+mas além disso possua a capacidade de consumir uma API externa gratuita (Sem token de autenticação)
+da escolha do usuário para guardar um dado
+
+Diferenciais:
+* Intalar um banco de dados externo (mySQL / PostGreSQL)
+* Utilizar commits Semânticos
+* Seguir boas práticas de programação.
+* Criar uma página funcional e organizada com HTML e CSS (Django Template)
+* Escrever uma boa documentação no README.md do github
+* Utilizar Docker
+* Autenticação com JWT
+* Validação de dados
