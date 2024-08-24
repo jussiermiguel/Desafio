@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Detalhes do Aluno</title>
-</head>
-<body>
-    <h1>Detalhes do Aluno</h1>
-    <p><strong>Nome:</strong> {{ aluno.nome }}</p>
-    <p><strong>Idade:</strong> {{ aluno.idade }}</p>
-    <p><strong>Data de Nascimento:</strong> {{ aluno.data_de_nascimento }}</p>
-    <p><strong>CPF:</strong> {{ aluno.cpf }}</p>
-    <p><strong>Sexo:</strong> {{ aluno.sexo }}</p>
-    <p><strong>Mensalidade Paga:</strong> {{ aluno.mensalidade_paga }}</p>
-    <a href="{% url 'atualizar_aluno' pk=aluno.pk %}">Atualizar</a>
-    <a href="{% url 'excluir_aluno' pk=aluno.pk %}">Excluir</a>
-    <a href="{% url 'lista_alunos' %}">Voltar para a lista</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Detalhes do Aluno{% endblock %}
+
+{% block content %}
+<h2>Detalhes do Aluno</h2>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>Nome:</strong> {{ aluno.nome }}</li>
+    <li class="list-group-item"><strong>Idade:</strong> {{ aluno.idade }}</li>
+    <li class="list-group-item"><strong>Data de Nascimento:</strong> {{ aluno.data_de_nascimento }}</li>
+    <li class="list-group-item"><strong>CPF:</strong> {{ aluno.cpf }}</li>
+    <li class="list-group-item"><strong>Sexo:</strong> {{ aluno.get_sexo_display }}</li>
+    <li class="list-group-item"><strong>Mensalidade Paga:</strong> {{ aluno.mensalidade_paga|yesno:"Sim,Não" }}</li>
+</ul>
+
+<a href="{% url 'atualizar_aluno' aluno.id %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'lista_alunos' %}" class="btn btn-secondary">Voltar</a>
+{% endblock %}

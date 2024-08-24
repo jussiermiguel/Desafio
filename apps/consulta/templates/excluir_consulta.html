@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Excluir Consulta</title>
-</head>
-<body>
-    <h1>Excluir Consulta</h1>
-    <p>Tem certeza de que deseja excluir a consulta de {{ consulta.alunos.nome }}?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirmar Exclusão</button>
-    </form>
-    <a href="{% url 'lista_consultas' %}">Cancelar</a>
-    <a href="{% url 'lista_consultas' %}">Voltar para a lista</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Confirmar Exclusão{% endblock %}
+
+{% block content %}
+<h2>Confirmar Exclusão</h2>
+<p>Tem certeza de que deseja excluir a consulta de <strong>{{ consulta.alunos.nome }}</strong>?</p>
+<p><strong>Data de Retorno:</strong> {{ consulta.retorno }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="{% url 'lista_consultas' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

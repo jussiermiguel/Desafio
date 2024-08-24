@@ -1,44 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista de Alunos</title>
-</head>
-<body>
-    <h1>Lista de Alunos</h1>
-    <a href="{% url 'criar_aluno' %}">Criar novo aluno</a>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Idade</th>
-                <th>Data de Nascimento</th>
-                <th>CPF</th>
-                <th>Sexo</th>
-                <th>Mensalidade Paga</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for aluno in alunos %}
-                <tr>
-                    <td>{{ aluno.nome }}</td>
-                    <td>{{ aluno.idade }}</td>
-                    <td>{{ aluno.data_de_nascimento }}</td>
-                    <td>{{ aluno.cpf }}</td>
-                    <td>{{ aluno.sexo }}</td>
-                    <td>{{ aluno.mensalidade_paga }}</td>
-                    <td>
-                        <a href="{% url 'detalhe_aluno' pk=aluno.pk %}">Detalhes</a>
-                        <a href="{% url 'atualizar_aluno' pk=aluno.pk %}">Atualizar</a>
-                        <a href="{% url 'excluir_aluno' pk=aluno.pk %}">Excluir</a>
-                    </td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="7">Nenhum aluno encontrado.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Lista de Alunos{% endblock %}
+
+{% block content %}
+<h2>Lista de Alunos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Data de Nascimento</th>
+            <th>CPF</th>
+            <th>Sexo</th>
+            <th>Mensalidade Paga</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.idade }}</td>
+            <td>{{ aluno.data_de_nascimento }}</td>
+            <td>{{ aluno.cpf }}</td>
+            <td>{{ aluno.sexo }}</td>
+            <td>{{ aluno.mensalidade_paga|yesno:"Sim,Não" }}</td>
+            <td>
+                <a href="{% url 'detalhe_aluno' aluno.id %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'atualizar_aluno' aluno.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'excluir_aluno' aluno.id %}" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">Nenhum aluno encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'criar_aluno' %}" class="btn btn-primary">Novo Aluno</a>
+{% endblock %}

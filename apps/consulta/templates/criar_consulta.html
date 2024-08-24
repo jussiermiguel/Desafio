@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Criar Consulta</title>
-</head>
-<body>
-    <h1>Criar Consulta</h1>
-    <form method="post">
-        {% csrf_token %}
+{% extends "base.html" %}
+
+{% block title %}{{ form.instance.pk|yesno:"Atualizar Consulta,Criar Nova Consulta" }}{% endblock %}
+
+{% block content %}
+<h2>{{ form.instance.pk|yesno:"Atualizar Consulta,Criar Nova Consulta" }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
         {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
-    <a href="{% url 'lista_consultas' %}">Voltar para a lista</a>
-</body>
-</html>
+    </div>
+    <button type="submit" class="btn btn-success">{{ form.instance.pk|yesno:"Atualizar,Salvar" }}</button>
+    <a href="{% url 'lista_consultas' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
