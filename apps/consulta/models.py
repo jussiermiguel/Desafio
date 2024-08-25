@@ -4,7 +4,7 @@ from django.db import models
 # Modelo para representar consultas com nutricionista
 class ConsultaNutricionista(models.Model):
      # Relacionamento com o modelo Aluno
-    alunos = models.ForeignKey('alunos.AlunoAcademia',on_delete=models.CASCADE, related_name='consultas')
+    alunos = models.ForeignKey('academia.AlunoAcademia',on_delete=models.CASCADE, related_name='consultas')
     cpf = models.CharField(max_length=14, unique=True)
     SEXO_CHOICES = (
         ('M', 'Masculino'),
@@ -19,4 +19,4 @@ class ConsultaNutricionista(models.Model):
     retorno = models.DateField()
 
     def __str__(self):
-        return self.aluno.nome
+        return self.alunos.nome
