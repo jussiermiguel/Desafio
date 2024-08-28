@@ -1,0 +1,60 @@
+Para otimizar o desenvolvimento com Python, Django e Django REST Framework (DRF) no Visual Studio Code (VS Code), há várias extensões que podem melhorar sua produtividade. Aqui estão algumas das melhores extensões para essas tecnologias:
+
+1. Python
+Python:
+
+Descrição: Fornece suporte essencial para Python, incluindo linting, debugging, IntelliSense, e mais.
+Autor: Microsoft
+Link: Python
+Pylint:
+
+Descrição: Ferramenta de linting para Python que ajuda a identificar erros e problemas de estilo no código.
+Autor: Microsoft
+Link: Pylint
+Black:
+
+Descrição: Um formatador de código automático para Python que garante que seu código esteja sempre formatado de forma consistente.
+Autor: Microsoft
+Link: Black Formatter
+isort:
+
+Descrição: Ferramenta para ordenar as importações no código Python.
+Autor: Microsoft
+Link: isort
+2. Django
+Django:
+
+Descrição: Suporte básico para Django, incluindo snippets e templates específicos para Django.
+Autor: Baptiste Darthenay
+Link: Django
+Django Template:
+
+Descrição: Oferece destaque de sintaxe e IntelliSense para templates Django.
+Autor: Justin Cook
+Link: Django Template
+Django Snippets:
+
+Descrição: Fornece snippets úteis para Django que podem acelerar o desenvolvimento.
+Autor: bibc
+Link: Django Snippets
+3. Django REST Framework (DRF)
+Django REST Framework:
+Descrição: Extensão com suporte para Django REST Framework, incluindo snippets e IntelliSense para serializers e viewsets.
+Autor: Diego Rojas
+Link: Django REST Framework
+4. Gerenciamento de Ambiente e Outros
+Pylance:
+
+Descrição: Fornece um poderoso motor de linguagem para Python, com recursos como IntelliSense avançado e análise estática de código.
+Autor: Microsoft
+Link: Pylance
+Python Environment Manager:
+
+Descrição: Facilita a criação e gerenciamento de ambientes virtuais para projetos Python.
+Autor: Brian G
+Link: Python Environment Manager
+Visual Studio IntelliCode:
+
+Descrição: Oferece sugestões de código baseadas em inteligência artificial, melhorando a produtividade e precisão do desenvolvimento.
+Autor: Microsoft
+Link: Visual Studio IntelliCode
